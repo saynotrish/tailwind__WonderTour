@@ -13,6 +13,8 @@
     /* ------------HEADER-------------- */
     .header__top{
         @apply flex items-center justify-start gap-[1rem] lg:justify-between;
+    }.branding{
+        @apply flex gap-[1rem];
     }
     .timeContact{
         @apply hidden lg:flex lg:gap-[1rem];
@@ -21,7 +23,7 @@
         @apply hidden lg:flex;
     }
     .header__wrapper{
-        @apply lg:mx-[5rem] lg:flex items-center lg:justify-between;
+        @apply flex items-center justify-between lg:mx-[5rem];
     }
     /* ------------HEADER TOGGLE-------------- */
     .toggle__menu{
@@ -76,46 +78,39 @@
 
     /* ------------TOP NAV-------------- */
     .top__nav{
-        @apply my-[1rem]
+        @apply my-[1rem] h-screen overflow-y-scroll;
     }
     .header__item{
-        @apply text-dark1 w-full hover:bg-lightB hover:text-light mb-[.3rem];
+        @apply text-dark1 w-full mb-[.3rem];
     }
     .header__item:first-child{
         @apply bg-lightB text-light;
     }
     .header__item h4{
-        @apply flex items-center justify-between text-[1rem] py-[.8rem] cursor-pointer mx-[1.5rem] ;
+        @apply flex items-center justify-between text-[1rem] py-[.8rem] cursor-pointer px-[1.5rem] hover:bg-lightB hover:text-light ;
     }
     .header__item i{
         @apply text-[.7rem] transition ease-linear duration-300;
     }
-
     .header__item i.open{
         @apply transition ease-linear duration-300 rotate-[180deg];
     }
-
     .header__contents{
-        @apply bg-light text-dark1 px-[2.5rem] max-h-0 overflow-hidden transition ease-linear duration-300 my-[.3rem];
+        @apply bg-light text-dark1 max-h-0 overflow-hidden transition ease-linear duration-300 cursor-pointer;
     }
-
     .header__contents.open{
-        @apply max-h-[50rem] transition ease-linear duration-300 mt-[.3rem];
+        @apply max-h-full transition-all lg:hidden;
     }
-    /* .header__contents ul{
-        @apply mt-[.3rem]
-    } */
     .header__contents ul li{
-        @apply  py-[.8rem] w-full hover:bg-lightB hover:text-light
+        @apply py-[.8rem] px-[2.5rem] mt-[.3rem] hover:bg-lightB hover:text-light;
     }
-
-    .header__contents ul li a:hover{
-        @apply underline;
+    .header__contents h3{
+        @apply text-[1.2rem] text-left text-[#50ba87] ml-[1.5rem] border-b-[1px] lg:border-transparent;
     }
 
     /* ------------HEADER BOTTOM-------------- */
     .header__bottom{
-        @apply bg-darkB;
+        @apply hidden lg:bg-darkB lg:flex;
     }
     .header__nav{
         @apply lg:flex lg:items-center lg:justify-between;
