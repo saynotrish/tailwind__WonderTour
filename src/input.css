@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container{
+    @apply max-w-[140rem] mx-auto p-[1.5rem];
+}
+.btn{
+    @apply inline-block py-[1.5rem] px-[5rem] rounded-[5rem];
+}
+
+@layer components{
+    /* ------------HEADER-------------- */
+    .header__top{
+        @apply flex items-center justify-start gap-[1rem] lg:justify-between;
+    }
+    .timeContact{
+        @apply hidden lg:flex lg:gap-[1rem];
+    }
+    .quote__btn{
+        @apply hidden lg:flex;
+    }
+    .header__wrapper{
+        @apply lg:mx-[5rem] lg:flex items-center lg:justify-between;
+    }
+    /* ------------HEADER TOGGLE-------------- */
+    .toggle__menu{
+        @apply lg:hidden;
+    }
+    .toggle__menu span{
+        @apply w-[1.3rem] h-[.12rem] bg-dark block rounded-full transition-[.5s] ease-in;
+    }
+    .toggle__menu span:nth-child(2){
+        @apply my-[.4rem];
+    }
+    .toggle__menu.open span{
+        @apply z-10 bg-dark;
+    }
+    .toggle__menu.open span:first-child{
+        @apply transform translate-x-0 translate-y-[6px] rotate-[225deg] transition-[.5s] ease-in;
+    }
+    .toggle__menu.open span:last-child{
+        @apply transform translate-x-0   translate-y-[-6px] rotate-[-225deg] transition-[.5s] ease-in;
+    }
+    .toggle__menu.open span:nth-child(2){
+        @apply opacity-0 transition-[.5s] ease-in;
+    }
+    .toggle__ellipsis{
+        @apply lg:hidden;
+    }
+    .toggle__ellipsis span{
+        @apply w-[.3rem] h-[.25rem] bg-dark block transition-[.5s] ease-in;
+    }
+    .toggle__ellipsis span:nth-child(2){
+        @apply my-[.25rem];
+    }
+
+    /* ------------HEADER NAV TOP-------------- */
+    .header__nav__top{
+        @apply fixed bg-light top-[4.25rem] left-[-100rem] w-[55%] h-[100vh] transition-[.5s] ease-in lg:hidden;
+    }
+    .header__nav__top.open{
+        @apply left-0 py-[1rem] px-[1px] transition-all lg:hidden;
+    }
+    .right__nav{
+        @apply lg:flex lg:items-center lg:gap-[2rem]
+    }
+
+    /* ------------TOP SOCIAL-------------- */
+    .top__social{
+        @apply mt-[.5rem] pb-[1rem] border-b border-grey;
+    }
+    .top__social ul{
+        @apply flex items-center justify-center gap-[1rem];
+    }
+
+    /* ------------TOP NAV-------------- */
+    .top__nav{
+        @apply my-[1rem]
+    }
+    .header__item{
+        @apply text-dark1 w-full hover:bg-lightB hover:text-light mb-[.3rem];
+    }
+    .header__item:first-child{
+        @apply bg-lightB text-light;
+    }
+    .header__item h4{
+        @apply flex items-center justify-between text-[1rem] py-[.8rem] cursor-pointer mx-[1.5rem] ;
+    }
+    .header__item i{
+        @apply text-[.7rem] transition ease-linear duration-300;
+    }
+
+    .header__item i.open{
+        @apply transition ease-linear duration-300 rotate-[180deg];
+    }
+
+    .header__contents{
+        @apply bg-light text-dark1 px-[2.5rem] max-h-0 overflow-hidden transition ease-linear duration-300 my-[.3rem];
+    }
+
+    .header__contents.open{
+        @apply max-h-[50rem] transition ease-linear duration-300 mt-[.3rem];
+    }
+    /* .header__contents ul{
+        @apply mt-[.3rem]
+    } */
+    .header__contents ul li{
+        @apply  py-[.8rem] w-full hover:bg-lightB hover:text-light
+    }
+
+    .header__contents ul li a:hover{
+        @apply underline;
+    }
+
+    /* ------------HEADER BOTTOM-------------- */
+    .header__bottom{
+        @apply bg-darkB;
+    }
+    .header__nav{
+        @apply lg:flex lg:items-center lg:justify-between;
+    }
+    .header__menu ul{
+        @apply flex;
+    }
+    .header__menu ul li{
+        @apply mr-[1.5rem] text-light text-[1.2rem]
+    }
+    .nav__social ul{
+        @apply flex;
+    }
+    .nav__social ul li{
+        @apply ml-[1rem] text-light text-[1.2rem]
+    }
+    
+    
+
+
+
+}
