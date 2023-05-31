@@ -8,6 +8,13 @@ toggleMenu.addEventListener("click", () => {
     headerNav.style = "transition:.5s ease";
 });
 
+const contactNav = document.querySelector('.right__nav');
+const toggleContact = document.querySelector('.toggle__ellipsis');
+toggleContact.addEventListener('click', ()=>{
+    contactNav.classList.toggle('open');
+    toggleContact.classList.toggle('open');
+});
+
 const dropdown = document.querySelectorAll(".header__item h4");
 dropdown.forEach((drop) => {
     drop.addEventListener("click", () => {

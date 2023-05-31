@@ -5,67 +5,102 @@
 .container{
     @apply max-w-[140rem] mx-auto p-[1.5rem];
 }
-.btn{
+/* .btn{
     @apply inline-block py-[1.5rem] px-[5rem] rounded-[5rem];
+} */
+@layer utilities{
+    .btn{
+        @apply p-2 border-2 border-lightB hover:bg-lgreen hover:border-lgreen hover:text-white transition-all relative;
+    }
+    .btn:hover span{
+        @apply h-full w-full opacity-100 top-0 right-0;
+    }
+    .btn span{
+        @apply h-0 w-0 absolute block mx-auto bg-lightB top-[50%] right-[50%] z-[-1] opacity-0 transition-all ease-in;
+    }
 }
 
 @layer components{
     /* ------------HEADER-------------- */
+    .header{
+        @apply relative shadow-sm;
+    }
     .header__top{
         @apply flex items-center justify-start gap-[1rem] lg:justify-between;
     }.branding{
         @apply flex gap-[1rem];
-    }
-    .timeContact{
-        @apply hidden lg:flex lg:gap-[1rem];
-    }
-    .quote__btn{
-        @apply hidden lg:flex;
     }
     .header__wrapper{
         @apply flex items-center justify-between lg:mx-[5rem];
     }
     /* ------------HEADER TOGGLE-------------- */
     .toggle__menu{
-        @apply lg:hidden;
+        @apply transform rotate-[-360deg] transition-[.5s] delay-[300ms] ease-in lg:hidden;
+    }
+    .toggle__menu.open{
+        @apply transform rotate-[180deg] transition-[.5s] ease-in delay-[300ms];
     }
     .toggle__menu span{
-        @apply w-[1.3rem] h-[.12rem] bg-dark block rounded-full transition-[.5s] ease-in;
+        @apply w-[1.4rem] h-[.19rem] bg-dark block rounded-full transform transition-[.5s] ease-in;
     }
     .toggle__menu span:nth-child(2){
-        @apply my-[.4rem];
+        @apply my-[.3rem];
     }
     .toggle__menu.open span{
-        @apply z-10 bg-dark;
+        @apply z-10 bg-dark transform transition-[.5s] ease-in;
     }
     .toggle__menu.open span:first-child{
-        @apply transform translate-x-0 translate-y-[6px] rotate-[225deg] transition-[.5s] ease-in;
+        @apply transform rotate-[45deg] translate-x-2;
     }
     .toggle__menu.open span:last-child{
-        @apply transform translate-x-0   translate-y-[-6px] rotate-[-225deg] transition-[.5s] ease-in;
+        @apply transform rotate-[-45deg] translate-x-2;
     }
     .toggle__menu.open span:nth-child(2){
-        @apply opacity-0 transition-[.5s] ease-in;
+        @apply transition-[.5s] ease-in;
     }
     .toggle__ellipsis{
         @apply lg:hidden;
     }
     .toggle__ellipsis span{
-        @apply w-[.3rem] h-[.25rem] bg-dark block transition-[.5s] ease-in;
+        @apply w-[.3rem] h-[.25rem] bg-dark block transition-all;
     }
     .toggle__ellipsis span:nth-child(2){
         @apply my-[.25rem];
     }
+    .toggle__ellipsis.open span:first-child{
+        @apply translate-y-4 transition-all;
+    }
+    .toggle__ellipsis.open span:last-child{
+        @apply -translate-y-4 transition-all;
+    }
 
     /* ------------HEADER NAV TOP-------------- */
     .header__nav__top{
-        @apply fixed bg-light top-[4.25rem] left-[-100rem] w-[55%] h-[100vh] transition-[.5s] ease-in lg:hidden;
+        @apply fixed bg-light top-[4.25rem] left-[-100rem] w-[55%] h-[100vh] transition-[.5s] ease-in overflow-y-scroll lg:hidden;
     }
     .header__nav__top.open{
         @apply left-0 py-[1rem] px-[1px] transition-all lg:hidden;
     }
     .right__nav{
-        @apply lg:flex lg:items-center lg:gap-[2rem]
+        @apply absolute bg-light py-[2rem] px-[1rem] right-0 top-[15rem] opacity-0 overflow-hidden transition-all duration-500 lg:flex lg:relative lg:overflow-visible lg:opacity-100 lg:top-[1rem] lg:right-0 lg:py-0 lg:px-0 lg:bg-transparent lg:transition-none lg:duration-0;
+    }
+    .right__nav.open{
+        @apply top-[4rem] opacity-100 transition-all duration-500 lg:top-0 lg:transition-none lg:duration-0;
+    }
+    .timeContact{
+        @apply mx-[1rem] mb-[1.5rem] lg:flex lg:gap-[1rem];
+    }
+    .timeContact p i{
+        @apply text-lightB mr-[.5rem];
+    }
+    .timeContact p{
+        @apply mb-[.5rem]
+    }
+    .timeContact p:first-child{
+        @apply border-r-[1px] pr-[1rem]
+    }
+    .quote__btn{
+        @apply flex justify-center lg:flex;
     }
 
     /* ------------TOP SOCIAL-------------- */
@@ -78,7 +113,7 @@
 
     /* ------------TOP NAV-------------- */
     .top__nav{
-        @apply my-[1rem] h-screen overflow-y-scroll;
+        @apply my-[1rem];
     }
     .header__item{
         @apply text-dark1 w-full mb-[.3rem];
@@ -87,7 +122,7 @@
         @apply bg-lightB text-light;
     }
     .header__item h4{
-        @apply flex items-center justify-between text-[1rem] py-[.8rem] cursor-pointer px-[1.5rem] hover:bg-lightB hover:text-light ;
+        @apply flex items-center justify-between text-[1rem] py-[.8rem] cursor-pointer px-[1.5rem] hover:bg-lightB hover:text-light;
     }
     .header__item i{
         @apply text-[.7rem] transition ease-linear duration-300;
@@ -113,22 +148,24 @@
         @apply hidden lg:bg-darkB lg:flex;
     }
     .header__nav{
-        @apply lg:flex lg:items-center lg:justify-between;
+        @apply lg:flex lg:items-center lg:justify-between lg:mx-[5rem];
     }
     .header__menu ul{
         @apply flex;
     }
     .header__menu ul li{
-        @apply mr-[1.5rem] text-light text-[1.2rem]
+        @apply mr-[1.5rem] text-light text-[1.2rem];
     }
     .nav__social ul{
         @apply flex;
     }
     .nav__social ul li{
-        @apply ml-[1rem] text-light text-[1.2rem]
+        @apply ml-[1rem] text-light text-[1.2rem];
     }
     
-    
+    .banner img{
+        @apply h-[20rem];
+    }
 
 
 
